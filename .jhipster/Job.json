@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20240905034940",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "job",
+  "fields": [
+    {
+      "fieldName": "jobName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Job",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "job",
+      "ownerSide": false,
+      "relationshipName": "employee",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

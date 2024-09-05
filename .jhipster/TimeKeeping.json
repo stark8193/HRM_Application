@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20240905034939",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "time_keeping",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "checkIn",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "checkOut",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TimeKeeping",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "employeeName",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "timeKeeping",
+      "relationshipName": "employee",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,89 @@
+entity Employee {
+    employeeName String required,
+    birthDate LocalDate required,
+    gender Gender required,
+    hireDate LocalDate required,
+    email String,
+    phone Integer required,
+    employeeStatus EmpStatus required,
+    taxCode Integer required,
+    cccd Integer required,
+    address String,
+    bankAccountNumber Integer,
+    bank String,
+    bankBranch String,
+    photoPath ImageBlob
+}
+
+relationship OneToOne{
+	Employee{user(login)} to User
+}
+
+entity TimeKeeping{
+	date LocalDate required,
+    checkIn ZonedDateTime required,
+    checkOut ZonedDateTime 
+}
+
+relationship OneToMany{
+	Employee{timeKeeping} to TimeKeeping{employee(employeeName)}
+}
+
+entity Job{
+    jobName String required,
+    description String
+}
+
+relationship OneToOne{
+  Employee{job(jobName)} to Job{employee}
+}
+
+entity Department{
+    departName String required,
+    shortName String
+}
+
+relationship OneToMany{
+	Department{employee} to Employee{department(departName)}
+}
+
+entity LeaveRequest{
+    startDate LocalDate required,
+    endDate LocalDate required,
+    status LeaveRequestStatus,
+    reason String 
+    
+}
+
+relationship OneToMany{
+	Employee{leaveRequest} to LeaveRequest{employee(employeeName)}
+}
+
+entity LeaveType{
+    leaveTypeName String required,
+    description String
+}
+
+relationship OneToMany{
+	LeaveType{leaveRequest} to LeaveRequest{leaveType(leaveTypeName)}
+}
+
+enum Gender {
+    MALE, FEMALE
+}
+
+enum EmpStatus {
+    FULLTIME, PARTTIME
+}
+
+enum LeaveRequestStatus {
+    PENDING, APPROVED, REJECTED
+}
+
+paginate all with infinite-scroll
+filter all
+service all with serviceImpl
+dto all with mapstruct
+
+
+

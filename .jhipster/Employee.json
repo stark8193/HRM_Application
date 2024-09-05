@@ -1,0 +1,118 @@
+{
+  "applications": "*",
+  "changelogDate": "20240905034938",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "employee",
+  "fields": [
+    {
+      "fieldName": "employeeName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MALE,FEMALE"
+    },
+    {
+      "fieldName": "hireDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "employeeStatus",
+      "fieldType": "EmpStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "FULLTIME,PARTTIME"
+    },
+    {
+      "fieldName": "taxCode",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cccd",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankAccountNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "bank",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankBranch",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photoPath",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Employee",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "jobName",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "employee",
+      "ownerSide": true,
+      "relationshipName": "job",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "timeKeeping",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "timeKeeping",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "leaveRequest",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "leaveRequest",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "departName",
+      "otherEntityName": "department",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "department",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

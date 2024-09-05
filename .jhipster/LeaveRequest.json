@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20240905034942",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "leave_request",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "LeaveRequestStatus",
+      "fieldValues": "PENDING,APPROVED,REJECTED"
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LeaveRequest",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "employeeName",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "leaveRequest",
+      "relationshipName": "employee",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "leaveTypeName",
+      "otherEntityName": "leaveType",
+      "otherEntityRelationshipName": "leaveRequest",
+      "relationshipName": "leaveType",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

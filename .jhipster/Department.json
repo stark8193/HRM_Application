@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240905034941",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "department",
+  "fields": [
+    {
+      "fieldName": "departName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "shortName",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Department",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "department",
+      "relationshipName": "employee",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

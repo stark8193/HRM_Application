@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20240905034943",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "leave_type",
+  "fields": [
+    {
+      "fieldName": "leaveTypeName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LeaveType",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "leaveRequest",
+      "otherEntityRelationshipName": "leaveType",
+      "relationshipName": "leaveRequest",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
